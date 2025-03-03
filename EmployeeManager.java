@@ -27,6 +27,7 @@ public class EmployeeManager {
             System.out.println("Loading data ...");
             try {
                 String[] employees = readFile().split(",");
+                // Randomly select an employee
                 System.out.println(employees[new Random().nextInt(employees.length)]);
             } catch (Exception e) {
                 e.printStackTrace();
@@ -48,17 +49,11 @@ public class EmployeeManager {
             System.out.println("Loading data ...");
             try {
                 String employeeToSearch = args[0].substring(1);
-                boolean employeeFound = false;
-
-                for (String employee : readFile().split(",")) {
-                    if (employee.equals(employeeToSearch)) {
-                        System.out.println("Employee found!");
-                        employeeFound = true;
-                        break;
-                    }
-                }
-                if (!employeeFound) {
-                    System.out.println("Employee not found.");
+                // Use contains() to check if the employee exists in the list
+                if (Arrays.asList(readFile().split(",")).contains(employeeToSearch)) {
+                    System.out.println("Employee " + employeeToSearch + " found!");
+                } else {
+                    System.out.println("Employee " + employeeToSearch + " not found.");
                 }
             } catch (Exception e) {
                 e.printStackTrace();
