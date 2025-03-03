@@ -4,6 +4,12 @@ import java.util.*;
 
 public class EmployeeManager {
     public static void main(String[] args) {
+
+        if (args.length == 0) {
+            System.out.println("Error: No arguments provided. Please provide a valid argument.");
+            return; // Exit the program
+        }
+        
         // Check arguments
         if (args[0].equals("l")) {
             
