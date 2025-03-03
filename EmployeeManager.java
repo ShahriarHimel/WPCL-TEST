@@ -27,7 +27,6 @@ public class EmployeeManager {
             System.out.println("Loading data ...");
             try {
                 String[] employees = readFile().split(",");
-                // Randomly select an employee
                 System.out.println(employees[new Random().nextInt(employees.length)]);
             } catch (Exception e) {
                 e.printStackTrace();
@@ -49,7 +48,6 @@ public class EmployeeManager {
             System.out.println("Loading data ...");
             try {
                 String employeeToSearch = args[0].substring(1);
-                // Use contains() to check if the employee exists in the list
                 if (Arrays.asList(readFile().split(",")).contains(employeeToSearch)) {
                     System.out.println("Employee " + employeeToSearch + " found!");
                 } else {
@@ -64,21 +62,9 @@ public class EmployeeManager {
         else if (args[0].contains("c")) {
             System.out.println("Loading data ...");
             try {
-                char[] characters = readFile().toCharArray();
-                boolean inWord = false;
-                int wordCount = 0;
-
-                for (char character : characters) {
-                    if (character == ' ') {
-                        if (!inWord) {
-                            wordCount++;
-                            inWord = true;
-                        } else {
-                            inWord = false;
-                        }
-                    }
-                }
-                System.out.println(wordCount + " word(s) found " + characters.length);
+                // Simplified word count logic: split by whitespace and count non-empty words
+                String[] words = readFile().split("\\s+");
+                System.out.println(words.length + " word(s) found.");
             } catch (Exception e) {
                 e.printStackTrace();
             }
