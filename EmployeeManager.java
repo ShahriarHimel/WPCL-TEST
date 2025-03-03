@@ -135,14 +135,14 @@ public class EmployeeManager {
     // Method to read file and return the contents as a String
     private static String readFile() throws IOException {
         BufferedReader reader = new BufferedReader(
-                new InputStreamReader(new FileInputStream("employees.txt")));
+                new InputStreamReader(new FileInputStream(Constants.EMPLOYEE_FILE_PATH)));
         return reader.readLine();
     }
 
     // Method to append a new employee to the file
     private static void appendToFile(String newEmployee) throws IOException {
         BufferedWriter writer = new BufferedWriter(
-                new FileWriter("employees.txt", true));
+                new FileWriter(Constants.EMPLOYEE_FILE_PATH, true));
         writer.write(", " + newEmployee);
         writer.close();
     }
@@ -150,7 +150,7 @@ public class EmployeeManager {
     // Method to write to the file
     private static void writeFile(String content) throws IOException {
         BufferedWriter writer = new BufferedWriter(
-                new FileWriter("employees.txt"));
+                new FileWriter(Constants.EMPLOYEE_FILE_PATH));
         writer.write(content);
         writer.close();
     }
