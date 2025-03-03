@@ -51,9 +51,13 @@ public class EmployeeManager {
                 String l = r.readLine();
                 String e[] = l.split(",");
                 boolean found = false;
-                String s = args[0].substring(1);
+             //   String s = args[0].substring(1);
+             String s = args[0].substring(1).trim();  // Remove leading/trailing spaces from input
+
                 for (int i = 0; i < e.length && !found; i++) {
-                    if (e[i].equals(s)) {
+                    //if (e[i].equals(s)) {
+                        if (e[i].trim().equals(s)) {  // Remove spaces from employee names before comparing
+
                         System.out.println("Employee found!");
                         found = true;
                     }
