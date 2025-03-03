@@ -6,6 +6,7 @@ public class EmployeeManager {
     public static void main(String[] args) {
         // Check arguments
         if (args[0].equals("l")) {
+            
             System.out.println("Loading data ...");
             try {
                 BufferedReader r = new BufferedReader(
@@ -18,7 +19,9 @@ public class EmployeeManager {
                 }
             } catch (Exception e) {}
             System.out.println("Data Loaded.");
-        } else if (args[0].equals("s")) {
+        } 
+        
+        else if (args[0].equals("s")) {
             System.out.println("Loading data ...");
             try {
                 BufferedReader r = new BufferedReader(
@@ -32,7 +35,9 @@ public class EmployeeManager {
                 System.out.println(e[idx]);
             } catch (Exception e) {}
             System.out.println("Data Loaded.");
-        } else if (args[0].contains("+")) {
+        }
+        
+        else if (args[0].contains("+")) {
             System.out.println("Loading data ...");
             try {
                 BufferedWriter w = new BufferedWriter(
@@ -42,7 +47,9 @@ public class EmployeeManager {
                 w.close();
             } catch (Exception e) {}
             System.out.println("Data Loaded.");
-        } else if (args[0].contains("?")) {
+        }
+        
+        else if (args[0].contains("?")) {
             System.out.println("Loading data ...");
             try {
                 BufferedReader r = new BufferedReader(
@@ -51,20 +58,19 @@ public class EmployeeManager {
                 String l = r.readLine();
                 String e[] = l.split(",");
                 boolean found = false;
-             //   String s = args[0].substring(1);
-             String s = args[0].substring(1).trim();  // Remove leading/trailing spaces from input
+                String s = args[0].substring(1);
 
                 for (int i = 0; i < e.length && !found; i++) {
-                    //if (e[i].equals(s)) {
-                        if (e[i].trim().equals(s)) {  // Remove spaces from employee names before comparing
-
+                    if (e[i].equals(s)) {
                         System.out.println("Employee found!");
                         found = true;
                     }
                 }
             } catch (Exception e) {}
             System.out.println("Data Loaded.");
-        } else if (args[0].contains("c")) {
+        }
+        
+        else if (args[0].contains("c")) {
             System.out.println("Loading data ...");
             try {
                 BufferedReader r = new BufferedReader(
@@ -87,7 +93,9 @@ public class EmployeeManager {
                 System.out.println(count + " word(s) found " + chars.length);
             } catch (Exception e) {}
             System.out.println("Data Loaded.");
-        } else if (args[0].contains("u")) {
+        }
+        
+        else if (args[0].contains("u")) {
             System.out.println("Loading data ...");
             try {
                 BufferedReader r = new BufferedReader(
@@ -107,7 +115,9 @@ public class EmployeeManager {
                 w.close();
             } catch (Exception e) {}
             System.out.println("Data Updated.");
-        } else if (args[0].contains("d")) {
+        }
+        
+        else if (args[0].contains("d")) {
             System.out.println("Loading data ...");
             try {
                 BufferedReader r = new BufferedReader(
